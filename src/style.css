@@ -521,3 +521,25 @@ li{
  object-fit:contain;
 
 }
+
+/* ===== CONTROLS CONTAINER  ===== */
+
+@media (max-width: 768px){
+
+.controlscontainercontainer{
+    flex-direction:column;
+    width:100%;
+    padding:0 20px;
+}
+
+#playerSelect{
+    width:100%;
+    max-width:300px;
+}
+
+#generateBtn{
+    width:100%;
+    max-width:300px;
+}
+
+}
