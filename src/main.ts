@@ -151,7 +151,7 @@ if (app) {
 
     <div id="draftOrderContainer">
       <h2>Draft Order:</h2>
-      <li id="draftOrderList"></li>
+      <ul id="draftOrderList"></ul>
     </div>
 
     

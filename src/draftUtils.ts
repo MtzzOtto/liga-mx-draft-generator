@@ -76,8 +76,6 @@ export function validatePlayerNames(playerInputs:HTMLCollectionOf<HTMLInputEleme
   const normalizedPlayerNames = [] as string[];
   const errors = [] as string[];
 
-
-  
   for(let i=0; i<playerInputs.length; i++){
     
     let playervalName = (playerInputs[i] as HTMLInputElement).value;
@@ -89,7 +87,6 @@ export function validatePlayerNames(playerInputs:HTMLCollectionOf<HTMLInputEleme
     if(!playervalName){
       errormessage.push(`Player ${i + 1} name is required.`);
     }
-    
     else if(!normalizedName.match(/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/)){
       errormessage.push(`Player ${i + 1} name contains invalid characters. 
         Please use only letters and spaces.`);
@@ -101,7 +98,6 @@ export function validatePlayerNames(playerInputs:HTMLCollectionOf<HTMLInputEleme
         break;
         }
       } 
-
     }    
     errors.push(...errormessage);
     playerNames.push((displayName));
