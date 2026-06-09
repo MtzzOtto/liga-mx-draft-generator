@@ -1,27 +1,13 @@
 import './style.css';
+import {
+  shufflePlayers,
+  assignTeams,
+  validatePlayerNames
+} from './draftUtils';
 
 const app = document.querySelector<HTMLDivElement>('#app');
 
-const teams = [
-  'America',
-  'Atlas',
-  'Atletico San Luis',
-  'Cruz Azul',
-  'Chivas',
-  'FC Juarez',
-  'Leon',
-  'Mazatlan',
-  'Monterrey',
-  'Necaxa',
-  'Pachuca',
-  'Puebla',
-  'Pumas',
-  'Queretaro',
-  'Santos Laguna',
-  'Tigres',
-  'Tijuana',
-  'Toluca',
-];
+
 
 const ligamxdata = {
 
@@ -139,7 +125,7 @@ if (app) {
     <span id="subtitle">Liga MX Draft Generator</span>
     </div>
 
-    <div class="controlscointainer">
+    <div class="controlsContainer">
     <label for="playerSelect">
         Number of Players:
     </label>
@@ -161,9 +147,13 @@ if (app) {
 
     <div id="playerContainer">
 
-
-
     </div>
+
+    <div id="draftOrderContainer">
+      <h2>Draft Order:</h2>
+      <ul id="draftOrderList"></ul>
+    </div>
+
     
     <div id="resultdiv">
       <div id="errorsContainer"></div>
@@ -176,10 +166,11 @@ if (app) {
 }
 
 const pselect= document.getElementById('playerSelect') as HTMLSelectElement;
-const cardsContainer = document.getElementById('cardsContainer') as HTMLDivElement;
 const button = document.getElementById('generateBtn');
 const playerContainer = document.getElementById('playerContainer');
 const errorsContainer = document.getElementById('errorsContainer') as HTMLDivElement;
+const draftOrderList = document.getElementById('draftOrderList') as HTMLOListElement;
+
 
 let inputs = '';
 inputs += `<input>`;
@@ -201,98 +192,43 @@ pselect?.addEventListener('change',() =>{
 
 
 
-button?.addEventListener('click',() =>{
 
-const playerInputs = document.getElementById('playerContainer')?.getElementsByTagName('input');
-const playerNames= [] as string[];
+function renderDraftOrder(draftOrder:string[],draftOrderList:HTMLElement){
 
-cardsContainer.innerHTML = '';
-
-
-if (cardsContainer){
-cardsContainer.innerHTML = '';
-if(playerInputs){  
   
-  const usedTeams = [] as string[];
-  const counterStealTeams = {} as Record<string, number>;
+      draftOrder.forEach((player, index) => {
+                  draftOrderList.innerHTML += `
+                    <li>
+                      Pick #${index + 1} - ${player}
+                    </li>
+                  `;
+
+          return {
+            draftOrder,
+              draftOrderList
+                };
   
-  let errors = [] as string[];
-
-  for(let i=0; i<playerInputs.length; i++){
-    
-    let playervalName = (playerInputs[i] as HTMLInputElement).value;
-    let errormessage = [] as string[];
-
-    let  normalizedName = playervalName.trim().toLowerCase();
-
-    if(!playervalName){
-      errormessage.push(`Player ${i + 1} name is required.`);
-    }
-    
-    else if(!normalizedName.match(/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/)){
-      errormessage.push(`Player ${i + 1} name contains invalid characters. 
-        Please use only letters and spaces.`);
-    }
-    else{
-        for(let j=0; j<playerNames.length; j++){
-          if(normalizedName === playerNames[j]){
-        errormessage.push(`Player ${i + 1} name is duplicated. Please choose a different name.`);
-        break;
-        }
-      } 
-
-    }    
-    errors.push(...errormessage);
-    playerNames.push((normalizedName));
-  }
-
-  errorsContainer.innerHTML = "";
-  if(errors.length > 0){
-      errorsContainer.innerHTML = `
-    <h2>Errors:</h2>
-    <ul>
-      ${errors.map(
-        error => `<li>${error}</li>`
-      ).join("")}
-    </ul>
-  `;
-
-  return;
-  }
-
-  for(let i=0; i<playerInputs.length; i++){
+        });   
   
 
-    let randomMainTeam = teams[Math.floor(Math.random() * teams.length)];
-    let randomstealTeam = teams[Math.floor(Math.random() * teams.length)];
-    let randomstealTeam2 = teams[Math.floor(Math.random() * teams.length)];
-    let playerName = (playerInputs[i] as HTMLInputElement).value;
-    
-    while(usedTeams.includes(randomMainTeam)){
-      randomMainTeam = teams[Math.floor(Math.random() * teams.length)];
-    }
-    while(randomMainTeam===randomstealTeam || counterStealTeams[randomstealTeam]>=2){
-      
-      randomstealTeam = teams[Math.floor(Math.random() * teams.length)];
+}
+
+function renderPlayerCards(draftOrder:string[], cardsContainer:HTMLElement,
+  usedTeams:string[], counterStealTeams:Record<string, number>){
+
+    for(let i=0; i<draftOrder.length; i++){
+
+      const teamsAssigned = assignTeams(usedTeams, counterStealTeams);
+      const randomMainTeam = teamsAssigned.mainTeam;
+      const randomstealTeam = teamsAssigned.stealTeams[0];
+      const randomstealTeam2 = teamsAssigned.stealTeams[1];
+      let playerName = draftOrder[i];
+
+        if(playerName){  
           
-    }
-    while(randomMainTeam===randomstealTeam2 || counterStealTeams[randomstealTeam2]>=2 
-      || randomstealTeam2 === randomstealTeam){
-
-      randomstealTeam2 = teams[Math.floor(Math.random() * teams.length)]; 
-    
-    }
-   
-    if(playerName){  
-          
-      playerNames.push(playerName);
       cardsContainer.innerHTML += `
 
-
-
         <div class="player-card">
-
-         
         
           <h3>${playerName}</h3>
             
@@ -318,13 +254,52 @@ if(playerInputs){
         </div>
                     `;
     }
-    
-    counterStealTeams[randomstealTeam] = (counterStealTeams[randomstealTeam] || 0) + 1;
-    counterStealTeams[randomstealTeam2] = (counterStealTeams[randomstealTeam2] || 0) + 1;
-    usedTeams.push(randomMainTeam);
-    console.log(counterStealTeams);
-  };
-};
-};
+
+
+    }
+    return {
+      draftOrder,
+      cardsContainer,
+      usedTeams,
+      counterStealTeams
+    };
+
+}
+
+
+button?.addEventListener('click',() =>{
+
+const playerInputs = document.getElementById('playerContainer')?.getElementsByTagName('input') as HTMLCollectionOf<HTMLInputElement>;
+const cardsContainer = document.getElementById('cardsContainer') as HTMLDivElement;
+
+cardsContainer.innerHTML = '';
+draftOrderList.innerHTML = '';
+errorsContainer.innerHTML = "";
+
+  
+  const usedTeams = [] as string[];
+  const counterStealTeams = {} as Record<string, number>;
+  const validationResult = validatePlayerNames(playerInputs);
+  const playerNames = validationResult.playerNames;
+  const errors = validationResult.errors;
+
+  if(errors.length > 0){
+      errorsContainer.innerHTML = `
+    <h2>Errors:</h2>
+    <ul>
+      ${errors.map(
+        error => `<li>${error}</li>`
+      ).join("")}
+    </ul>
+  `;
+
+  return;
+
+  }
+
+  const draftOrder = shufflePlayers(playerNames);
+  renderDraftOrder(draftOrder, draftOrderList);
+  renderPlayerCards(draftOrder, cardsContainer, usedTeams, counterStealTeams);
+
 });
 

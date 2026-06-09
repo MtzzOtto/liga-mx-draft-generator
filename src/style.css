@@ -526,8 +526,12 @@ li{
 
 @media (max-width: 768px){
 
-.controlscontainercontainer{
+ h1 {
+    font-size: 4rem;
+  }
+.controlsContainer{
     flex-direction:column;
+    align-items: center;
     width:100%;
     padding:0 20px;
 }
@@ -541,5 +545,24 @@ li{
     width:100%;
     max-width:300px;
 }
+
+#playerContainer {
+    flex-direction: column;
+  }
+
+
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 3rem;
+  }
+  .controlsContainer{
+    flex-direction:column;
+    align-items: center;
+    width:100%;
+    padding:0 20px;
+}
+
 
 }
