@@ -1,48 +1,43 @@
-# Draft App
+# Liga MX Draft Generator
 
-Draft App is a web application designed to generate and manage dynamic team drafts.
+Personal project developed using TypeScript.
 
-## Project Overview
+## Purpose
 
-This project was created as a personal initiative to strengthen software development, quality assurance, and test automation skills.
+This project was created to strengthen my software development, quality assurance, and testing skills through a real-world application.
 
-The application allows users to create teams, manage participants, and generate balanced draft assignments through custom business rules.
+## Features
+
+- Dynamic team generation
+- Draft order generation
+- Responsive design
+- Team assignment validation
 
 ## Technologies
 
-* TypeScript
-* CSS
-* Git
-* GitHub
-* Netlify
+- TypeScript
+- CSS
+- Git
+- GitHub
+- Netlify
 
-## Current Status
+## Quality Assurance Activities
 
-Version 1.0 in progress.
+- Functional testing
+- Test case design
+- Test execution cycles
+- Unit testing (in progress)
+- Performance testing planning (in progress)
 
-### Completed
+## Project Management
 
-* Team management
-* Player assignment logic
-* Validation rules
-* Responsive user interface
-* Deployment using Netlify
+The project is managed using GitHub Projects with:
 
-### In Progress
+- Product Backlog
+- User Stories
+- Testing activities
+- Development roadmap
 
-* Automated testing with Vitest
-* End-to-end testing
-* Performance testing with K6
-* API integration
-
-## Demo
+## Live Demo
 
 https://draft-ligamx.netlify.app
-
-## Future Improvements
-
-* Backend integration
-* Database support
-* User authentication
-* Advanced reporting
-* Performance dashboards
