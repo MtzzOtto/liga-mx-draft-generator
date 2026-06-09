@@ -21,13 +21,23 @@ This project was created to strengthen my software development, quality assuranc
 - GitHub
 - Netlify
 
-## Quality Assurance Activities
 
-- Functional testing
-- Test case design
-- Test execution cycles
-- Unit testing (in progress)
-- Performance testing planning (in progress)
+### Functional Testing
+- Test Plan
+- Requirements Traceability Matrix (RTM)
+- Test Cases
+- Test Execution Summary
+
+### Unit Testing
+Implemented with Vitest:
+
+- shufflePlayers()
+- validatePlayerNames()
+
+### Planned Activities
+- Playwright automation
+- Performance testing with K6
+- Teams API integration testing
 
 ## Project Management
 
