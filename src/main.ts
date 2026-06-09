@@ -125,7 +125,7 @@ if (app) {
     <span id="subtitle">Liga MX Draft Generator</span>
     </div>
 
-    <div class="controlscointainer">
+    <div class="controlsContainer">
     <label for="playerSelect">
         Number of Players:
     </label>
