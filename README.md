@@ -22,22 +22,33 @@ This project was created to strengthen my software development, quality assuranc
 - Netlify
 
 
-### Functional Testing
+## Functional Testing
 - Test Plan
 - Requirements Traceability Matrix (RTM)
 - Test Cases
 - Test Execution Summary
 
-### Unit Testing
+## Unit Testing
 Implemented with Vitest:
 
 - shufflePlayers()
 - validatePlayerNames()
 
-### Planned Activities
+## Planned Activities
 - Playwright automation
 - Performance testing with K6
 - Teams API integration testing
+
+## Project Repository
+
+This project follows a structured QA and development workflow:
+
+- GitHub Projects
+- User Stories
+- Epics
+- Functional Testing
+- Unit Testing
+- Feature Branch Development
 
 ## Project Management
 
