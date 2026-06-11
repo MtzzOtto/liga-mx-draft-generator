@@ -120,7 +120,7 @@ function renderStars(rating:number){
 
 if (app) {
   app.innerHTML = `
-    <div id="title-container">
+    <div id="titleContainer">
     <h1>DRAFT APP</h1>
     <span id="subtitle">Liga MX Draft Generator</span>
     </div>

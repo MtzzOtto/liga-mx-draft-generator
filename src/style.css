@@ -524,16 +524,28 @@ li{
 
 /* ===== CONTROLS CONTAINER  ===== */
 
-@media (max-width: 768px){
+.controlsContainer{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    margin-top:20px;
+}
+@media(max-width:1024px){
+
+  #playerContainer{
+      grid-template-columns:repeat(2,1fr);
+      max-width:600px;
+  }
+
+}
+@media (max-width: 600px){
 
  h1 {
     font-size: 4rem;
   }
 .controlsContainer{
     flex-direction:column;
-    align-items: center;
-    width:100%;
-    padding:0 20px;
 }
 
 #playerSelect{
@@ -547,22 +559,24 @@ li{
 }
 
 #playerContainer {
-    flex-direction: column;
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+ .playerInputs{
+      display:flex;
+      align-items:center;
+      flex-direction:column;
+      gap:10px;
   }
 
-
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 3rem;
-  }
-  .controlsContainer{
-    flex-direction:column;
-    align-items: center;
+  .playerInputs input{
     width:100%;
-    padding:0 20px;
+    max-width:300px;
+  }
+
+    #cardsContainer{
+      grid-template-columns:1fr;
+  }
+
 }
 
-
-}
