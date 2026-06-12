@@ -111,3 +111,35 @@ return {
 };
 
 }
+
+export function renderStars(rating:number){
+
+ let html='';
+
+ const fullStars =
+ Math.floor(rating);
+
+ const hasHalf =
+ rating % 1 !== 0;
+
+ for(let i=0;i<fullStars;i++){
+
+   html += `
+   <img
+   src="/stars/fullstar.png"
+   class="star"
+   >`;
+
+ }
+ if(hasHalf){
+
+   html += `
+   <img
+   src="/stars/halfstar.png"
+   class="star"
+   >`;
+
+ }
+ return html;
+
+}

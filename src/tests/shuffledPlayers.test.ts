@@ -14,11 +14,7 @@ describe('shufflePlayers', () => {
 
     });
 
-});
-
-
-describe('shufflePlayers', () => {
-    it('should return a array', () => {
+     it('should return a array', () => {
 
         const players = ['Oto','Juan','Pedro'];
         const result = shufflePlayers(players);
@@ -28,12 +24,7 @@ describe('shufflePlayers', () => {
 
     });
 
-});
-
-
-describe('shufflePlayers',() => {
-
-    it('should contain all original players',() =>{
+        it('should contain all original players',() =>{
         
         const players = ['Oto','Juan','Pedro'];
         const result = shufflePlayers(players);
@@ -43,6 +34,12 @@ describe('shufflePlayers',() => {
 
     });
     
+
+
+
 });
+
+
+
 
     

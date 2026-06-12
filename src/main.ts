@@ -2,7 +2,8 @@ import './style.css';
 import {
   shufflePlayers,
   assignTeams,
-  validatePlayerNames
+  validatePlayerNames,
+  renderStars
 } from './draftUtils';
 
 const app = document.querySelector<HTMLDivElement>('#app');
@@ -85,37 +86,7 @@ const ligamxdata = {
   },
 } as Record<string, {stars:number, logo:string}>;
 
-function renderStars(rating:number){
 
- let html='';
-
- const fullStars =
- Math.floor(rating);
-
- const hasHalf =
- rating % 1 !== 0;
-
- for(let i=0;i<fullStars;i++){
-
-   html += `
-   <img
-   src="/stars/fullstar.png"
-   class="star"
-   >`;
-
- }
- if(hasHalf){
-
-   html += `
-   <img
-   src="/stars/halfstar.png"
-   class="star"
-   >`;
-
- }
- return html;
-
-}
 
 
 if (app) {
