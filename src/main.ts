@@ -242,6 +242,9 @@ button?.addEventListener('click',() =>{
 
 const playerInputs = document.getElementById('playerContainer')?.getElementsByTagName('input') as HTMLCollectionOf<HTMLInputElement>;
 const cardsContainer = document.getElementById('cardsContainer') as HTMLDivElement;
+const generateBtn = document.getElementById('generateBtn') as HTMLButtonElement;
+
+
 
 cardsContainer.innerHTML = '';
 draftOrderList.innerHTML = '';
@@ -271,6 +274,8 @@ errorsContainer.innerHTML = "";
   const draftOrder = shufflePlayers(playerNames);
   renderDraftOrder(draftOrder, draftOrderList);
   renderPlayerCards(draftOrder, cardsContainer, usedTeams, counterStealTeams);
+
+  generateBtn.disabled=true;  
 
 });
 
