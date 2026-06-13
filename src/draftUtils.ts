@@ -84,6 +84,16 @@ export function validatePlayerNames(playerInputs:HTMLCollectionOf<HTMLInputEleme
     let displayName = playervalName.trim();
     let normalizedName = playervalName.trim().toLowerCase();
 
+    if(playerInputs.length===0){
+      errors.push('Please select number of players');
+      return {
+        playerNames,
+        normalizedName,
+        errors
+      }
+
+    }
+
     if(!playervalName){
       errormessage.push(`Player ${i + 1} name is required.`);
     }
@@ -141,5 +151,22 @@ export function renderStars(rating:number){
 
  }
  return html;
+
+}
+
+export function resetDraftStats(playerContainer : HTMLElement,
+  cardsContainer:HTMLElement,draftOrderList:HTMLElement,errorsContainer:HTMLElement,
+generateBtn:HTMLButtonElement,resetBtn:HTMLButtonElement,playerSelect:HTMLSelectElement){
+
+playerContainer.innerHTML ='';
+cardsContainer.innerHTML='';
+draftOrderList.innerHTML='';
+errorsContainer.innerHTML='';
+
+generateBtn.disabled= false;
+resetBtn.disabled = true;
+playerSelect.disabled=false;
+playerSelect.value='';
+
 
 }

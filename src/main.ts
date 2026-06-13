@@ -3,7 +3,8 @@ import {
   shufflePlayers,
   assignTeams,
   validatePlayerNames,
-  renderStars
+  renderStars,
+  resetDraftStats
 } from './draftUtils';
 
 const app = document.querySelector<HTMLDivElement>('#app');
@@ -114,6 +115,11 @@ if (app) {
     <button id="generateBtn">
       Generate Draft
     </button>
+    
+    <button id="resetBtn" disabled>
+      Reset Draft
+    </button>
+    
     </div>
 
     <div id="playerContainer">
@@ -136,18 +142,21 @@ if (app) {
   `;
 }
 
-const pselect= document.getElementById('playerSelect') as HTMLSelectElement;
-const button = document.getElementById('generateBtn');
-const playerContainer = document.getElementById('playerContainer');
+const playerSelect= document.getElementById('playerSelect') as HTMLSelectElement;
+const generateBtn = document.getElementById('generateBtn') as HTMLButtonElement;
+const resetBtn = document.getElementById('resetBtn') as HTMLButtonElement;
+const playerContainer = document.getElementById('playerContainer') as HTMLDivElement;
 const errorsContainer = document.getElementById('errorsContainer') as HTMLDivElement;
+const cardsContainer = document.getElementById('cardsContainer') as HTMLDivElement;
 const draftOrderList = document.getElementById('draftOrderList') as HTMLOListElement;
+
 
 
 let inputs = '';
 inputs += `<input>`;
 
-pselect?.addEventListener('change',() =>{
-    const value = pselect?.value;
+playerSelect?.addEventListener('change',() =>{
+    const value = playerSelect?.value;
   if(Number(value)>0){
       playerContainer!.innerHTML = '';
       for(let inputs=0; inputs<Number(value); inputs++){
@@ -238,13 +247,10 @@ function renderPlayerCards(draftOrder:string[], cardsContainer:HTMLElement,
 }
 
 
-button?.addEventListener('click',() =>{
+generateBtn?.addEventListener('click',() =>{
 
 const playerInputs = document.getElementById('playerContainer')?.getElementsByTagName('input') as HTMLCollectionOf<HTMLInputElement>;
 const cardsContainer = document.getElementById('cardsContainer') as HTMLDivElement;
-const generateBtn = document.getElementById('generateBtn') as HTMLButtonElement;
-
-
 
 cardsContainer.innerHTML = '';
 draftOrderList.innerHTML = '';
@@ -256,6 +262,7 @@ errorsContainer.innerHTML = "";
   const validationResult = validatePlayerNames(playerInputs);
   const playerNames = validationResult.playerNames;
   const errors = validationResult.errors;
+
 
   if(errors.length > 0){
       errorsContainer.innerHTML = `
@@ -275,7 +282,33 @@ errorsContainer.innerHTML = "";
   renderDraftOrder(draftOrder, draftOrderList);
   renderPlayerCards(draftOrder, cardsContainer, usedTeams, counterStealTeams);
 
-  generateBtn.disabled=true;  
+
+  generateBtn.disabled = true;
+  resetBtn.disabled = false;
+  playerSelect.disabled=true;
+  
+  for(const input of playerInputs){
+
+    input.disabled=true;
+
+  }
+
+
+
+});
+
+resetBtn?.addEventListener('click',()=>{
+
+resetDraftStats(playerContainer,
+  cardsContainer,
+  draftOrderList,
+  errorsContainer,
+  generateBtn,
+  resetBtn,
+  playerSelect
+
+);
+
 
 });
 
