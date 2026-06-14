@@ -158,6 +158,9 @@ inputs += `<input>`;
 playerSelect?.addEventListener('change',() =>{
     const value = playerSelect?.value;
   if(Number(value)>0){
+    
+      playerSelect.options[0].disabled=true;
+    
       playerContainer!.innerHTML = '';
       for(let inputs=0; inputs<Number(value); inputs++){
             playerContainer!.innerHTML += `
@@ -167,7 +170,9 @@ playerSelect?.addEventListener('change',() =>{
                     </div>
                           `;
               }
+        errorsContainer.innerHTML='';
     };
+   
 });
 
 
@@ -247,24 +252,9 @@ function renderPlayerCards(draftOrder:string[], cardsContainer:HTMLElement,
 }
 
 
-generateBtn?.addEventListener('click',() =>{
+function rendersErrors(errors:string[],errorsContainer:HTMLElement){
 
-const playerInputs = document.getElementById('playerContainer')?.getElementsByTagName('input') as HTMLCollectionOf<HTMLInputElement>;
-const cardsContainer = document.getElementById('cardsContainer') as HTMLDivElement;
-
-cardsContainer.innerHTML = '';
-draftOrderList.innerHTML = '';
-errorsContainer.innerHTML = "";
-
-  
-  const usedTeams = [] as string[];
-  const counterStealTeams = {} as Record<string, number>;
-  const validationResult = validatePlayerNames(playerInputs);
-  const playerNames = validationResult.playerNames;
-  const errors = validationResult.errors;
-
-
-  if(errors.length > 0){
+   if(errors.length > 0){
       errorsContainer.innerHTML = `
     <h2>Errors:</h2>
     <ul>
@@ -277,6 +267,41 @@ errorsContainer.innerHTML = "";
   return;
 
   }
+
+
+}
+
+
+generateBtn?.addEventListener('click',() =>{
+
+const playerInputs = document.getElementById('playerContainer')?.getElementsByTagName('input') as HTMLCollectionOf<HTMLInputElement>;
+const cardsContainer = document.getElementById('cardsContainer') as HTMLDivElement;
+const errorsContainer = document.getElementById('errorsContainer') as HTMLElement;
+
+cardsContainer.innerHTML = '';
+draftOrderList.innerHTML = '';
+errorsContainer.innerHTML = "";
+
+  
+  const usedTeams = [] as string[];
+  const counterStealTeams = {} as Record<string, number>;
+ 
+  const errors = [] as string [];
+
+  if(playerInputs.length===0){
+      errors.push('Please select number of players');
+   
+    }
+
+  rendersErrors(errors,errorsContainer);
+  if(errors.length > 0) return;
+
+  const validationResult = validatePlayerNames(playerInputs);
+  const playerNames = validationResult.playerNames;
+  errors.push(...validationResult.errors);
+
+  rendersErrors(errors,errorsContainer);
+  if(errors.length > 0) return;
 
   const draftOrder = shufflePlayers(playerNames);
   renderDraftOrder(draftOrder, draftOrderList);

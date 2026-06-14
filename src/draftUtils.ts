@@ -84,16 +84,6 @@ export function validatePlayerNames(playerInputs:HTMLCollectionOf<HTMLInputEleme
     let displayName = playervalName.trim();
     let normalizedName = playervalName.trim().toLowerCase();
 
-    if(playerInputs.length===0){
-      errors.push('Please select number of players');
-      return {
-        playerNames,
-        normalizedName,
-        errors
-      }
-
-    }
-
     if(!playervalName){
       errormessage.push(`Player ${i + 1} name is required.`);
     }
