@@ -1,8 +1,14 @@
-# Acceptance Criteria
+# Draft Generation
 
-- User can select between 1 and 8 players.
-- Player names are required.
+- Draft order is generated successfully.
+- Generate button becomes disabled after execution.
+
+# Player Validation
+
+- Empty names are not allowed.
 - Duplicate names are not allowed.
-- Draft order must be randomized.
-- Main teams cannot be duplicated.
-- User must reset before generating a new draft.
+
+# Reset Draft
+
+- Reset button clears the application state.
+- User can generate a new draft after reset.
