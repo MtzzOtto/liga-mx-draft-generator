@@ -8,5 +8,14 @@ The complete QA documentation is maintained in Google Sheets:
 - Test Execution Summary
 - Defect Log
 
+QA Documentation Source:
+Google Sheets URL
+
+Contains:
+- Test Plan
+- RTM
+- Test Cases
+- Test Summary
+
 Google Sheets URL:
 https://docs.google.com/spreadsheets/d/12l7j98_cZuQotgb2CBftYf7busdqFXsMWqpXI25bb3Y/edit?usp=sharing
