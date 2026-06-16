@@ -10,8 +10,8 @@ Draft generation utilities.
 
 ## Results
 
-- Total Tests: X
-- Passed: X
+- Total Tests: 18
+- Passed: 18
 - Failed: 0
 
 ## Covered Functions
