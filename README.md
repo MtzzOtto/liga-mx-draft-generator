@@ -21,7 +21,7 @@ As a user, I want to generate a random draft order, so that each player receives
 ### Requirements
 
 - [User Stories](docs/requirements/user-stories.md)
-- [Acceptance Criteria](docs/requirements/acceptance-criteria.md)
+- [Acceptance Criteria](docs/requirements/acceptence-criteria.md)
 
 ### Architecture
 
