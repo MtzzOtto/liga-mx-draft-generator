@@ -30,7 +30,7 @@ As a user, I want to generate a random draft order, so that each player receives
 
 ### Testing
 
-- [Test Strategy](docs/testing/test-strategy.md)
+- [Test Strategy](docs/testing/test-startegy.md)
 - [Test Execution Summary](docs/testing/test-execution-summary.md)
 - [Defect Log](docs/testing/defect-log.md)
 - [Unit Test Summary](docs/testing/unit-test-summary.md)
