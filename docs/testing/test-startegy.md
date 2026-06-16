@@ -12,12 +12,6 @@ Validate the Liga MX Draft Generator functionality and ensure compliance with bu
 - Responsive Testing
 - End-to-End Testing (Playwright)
 
-## Test Types
-
-- Positive Testing
-- Negative Testing
-- Boundary Testing
-
 ## Future Scope
 
 - API Testing
