@@ -1,13 +1,12 @@
-# Testing Documentation
+## Test Documentation
 
-## Available Artifacts
+The complete QA documentation is maintained in Google Sheets:
 
-- Test Plan (Google Sheets)
-- Test Cases
-- Test Strategy
+- Test Plan
+- Traceability Matrix (RTM)
+- Functional Test Cases
 - Test Execution Summary
-- Test Evidence
+- Defect Log
 
-Note:
-The Test Plan is maintained externally in Google Sheets to simplify updates and collaboration.
-The repository contains supporting testing artifacts and execution evidence.
+Google Sheets URL:
+https://docs.google.com/spreadsheets/d/12l7j98_cZuQotgb2CBftYf7busdqFXsMWqpXI25bb3Y/edit?usp=sharing
