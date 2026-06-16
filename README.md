@@ -1,64 +1,70 @@
 # Liga MX Draft Generator
 
-Personal project developed using TypeScript.
-
-## Purpose
-
-This project was created to strengthen my software development, quality assurance, and testing skills through a real-world application.
-
-## Features
-
-- Dynamic team generation
-- Draft order generation
-- Responsive design
-- Team assignment validation
-
-## Technologies
-
-- TypeScript
-- CSS
-- Git
-- GitHub
-- Netlify
-
-
-## Functional Testing
-- Test Plan
-- Requirements Traceability Matrix (RTM)
-- Test Cases
-- Test Execution Summary
-
-## Unit Testing
-Implemented with Vitest:
-
-- shufflePlayers()
-- validatePlayerNames()
-
-## Planned Activities
-- Playwright automation
-- Performance testing with K6
-- Teams API integration testing
-
-## Project Repository
-
-This project follows a structured QA and development workflow:
-
-- GitHub Projects
-- User Stories
-- Epics
-- Functional Testing
-- Unit Testing
-- Feature Branch Development
-
-## Project Management
-
-The project is managed using GitHub Projects with:
-
-- Product Backlog
-- User Stories
-- Testing activities
-- Development roadmap
+Web application that generates a randomized Liga MX draft order and assigns unique teams to players.
 
 ## Live Demo
 
-https://draft-ligamx.netlify.app
+[Application URL](AQUI_TU_URL)
+
+---
+
+## User Story
+
+### HU-01 Generate Random Draft Order
+
+As a user, I want to generate a random draft order, so that each player receives a unique team assignment fairly.
+
+---
+
+## Project Documentation
+
+### Requirements
+
+- [User Stories](docs/requirements/user-stories.md)
+- [Acceptance Criteria](docs/requirements/acceptance-criteria.md)
+
+### Architecture
+
+- [System Overview](docs/architecture/system-overview.md)
+- [API Design](docs/architecture/api-design.md)
+
+### Testing
+
+- [Test Strategy](docs/testing/test-strategy.md)
+- [Test Execution Summary](docs/testing/test-execution-summary.md)
+- [Defect Log](docs/testing/defect-log.md)
+- [Unit Test Summary](docs/testing/unit-test-summary.md)
+
+### Evidence
+
+- [Execution Log](docs/evidence/execution-log.pdf)
+- [Screenshots](docs/evidence/screenshots)
+
+---
+
+## Technology Stack
+
+- HTML
+- CSS
+- JavaScript
+- Vite
+- Vitest
+
+---
+
+## Test Results
+
+| Metric | Result |
+|----------|----------|
+| Total Test Cases | 21 |
+| Passed | 21 |
+| Failed | 0 |
+| Defects | 0 |
+
+---
+
+## Status
+
+Current Version: 1.0
+
+Status: Ready for Release
