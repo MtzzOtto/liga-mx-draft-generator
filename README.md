@@ -56,7 +56,6 @@ As a user, I want to generate a random draft order, so that each player receives
 - Vite
 - Vitest
 - Playwright
-- GitHub Actions
 - Netlify
 
 ---
@@ -76,7 +75,7 @@ As a user, I want to generate a random draft order, so that each player receives
 
 Current Version: 1.0
 
-Status: Release
+Status: Released
 
 ## Future Improvements
 
