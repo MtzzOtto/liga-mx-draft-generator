@@ -34,6 +34,7 @@ As a user, I want to generate a random draft order, so that each player receives
 - [Test Execution Summary](docs/testing/test-execution-summary.md)
 - [Defect Log](docs/testing/defect-log.md)
 - [Unit Test Summary](docs/testing/unit-test-summary.md)
+- [End-to-End Test Summary](docs/testing/unit-test-summary.md)
 
 ### Evidence
 
