@@ -352,6 +352,15 @@ background-clip:text;
 }
 
 
+input:disabled,
+select:disabled {
+
+  opacity: 0.5;
+  cursor: not-allowed;
+
+}
+
+
 
 /* ===== INPUTS ===== */
 input{
