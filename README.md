@@ -40,7 +40,7 @@ As a user, I want to generate a random draft order, so that each player receives
 
 - [Execution Log](docs/evidence/execution-log.pdf)
 - [Screenshots E2E Tests](docs/evidence/screenshots-e2e-tests/playwright-report.png)
-- [Screenshots](docs/evidence/screenshots)
+- [Screenshots Unit Tests](docs/evidence/screenshots-unit-tests)
 - [Screenshots](docs/evidence/screenshots)
 
 ---
