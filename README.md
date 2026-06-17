@@ -76,4 +76,13 @@ As a user, I want to generate a random draft order, so that each player receives
 
 Current Version: 1.0
 
-Status: Ready for Release
+Status: Release
+
+## Future Improvements
+
+- CI/CD pipeline with GitHub Actions
+- API integration
+- Database integration
+- Performance testing with JMeter
+- Performance testing with k6
+- Docker containerization
