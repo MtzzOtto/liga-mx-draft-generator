@@ -30,7 +30,7 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    baseURL: 'https://draftmx-app.netlify.app'
+    baseURL: 'https://draft-ligamx.netlify.app/'
   },
 
   /* Configure projects for major browsers */
