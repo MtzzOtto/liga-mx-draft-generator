@@ -4,7 +4,7 @@ Web application that generates a randomized Liga MX draft order and assigns uniq
 
 ## Live Demo
 
-[Application URL](AQUI_TU_URL)
+[Application URL](https://draft-ligamx.netlify.app/)
 
 ---
 
