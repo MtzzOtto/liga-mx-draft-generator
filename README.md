@@ -15,6 +15,9 @@ Web application that generates a randomized Liga MX draft order and assigns uniq
 As a user, I want to generate a random draft order, so that each player receives a unique team assignment fairly.
 
 ---
+## Project Management
+
+- [Github Porject Board](docs/requirements/user-stories.md)
 
 ## Project Documentation
 
