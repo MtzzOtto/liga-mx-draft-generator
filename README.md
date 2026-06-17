@@ -17,7 +17,7 @@ As a user, I want to generate a random draft order, so that each player receives
 ---
 ## Project Management
 
-- [Github Porject Board](docs/requirements/user-stories.md)
+- [Github Porject Board](https://github.com/users/MtzzOtto/projects/1)
 
 ## Project Documentation
 
