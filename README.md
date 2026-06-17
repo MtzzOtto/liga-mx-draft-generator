@@ -44,11 +44,14 @@ As a user, I want to generate a random draft order, so that each player receives
 
 ## Technology Stack
 
+- TypeScript
 - HTML
 - CSS
-- JavaScript
 - Vite
 - Vitest
+- Playwright
+- GitHub Actions
+- Netlify
 
 ---
 
