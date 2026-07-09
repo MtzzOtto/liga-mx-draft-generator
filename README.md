@@ -1,4 +1,4 @@
-# Liga MX Draft Generator
+# Draft App Generator
 
 Web application that generates a randomized Liga MX draft order and assigns unique teams to players.
 
